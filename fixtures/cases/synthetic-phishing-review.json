@@ -1,0 +1,45 @@
+{
+  "case_id": "case-synthetic-phishing",
+  "title": "Synthetic invoice lure review",
+  "source_label": "Training scenario — sanitized mail gateway summary",
+  "narrative": "A synthetic invoice-themed phishing message may have directed a training user to a documentation-domain credential page. The record includes a high-confidence phishing theme and requires authorized mail and identity telemetry review.",
+  "confidence": "high",
+  "tags": ["phishing", "credential-access"],
+  "indicators": [
+    {
+      "indicator_id": "ind-invoice-domain",
+      "kind": "domain",
+      "value": "invoice-portal.example",
+      "confidence": "high",
+      "tags": ["phishing", "credential-access"]
+    },
+    {
+      "indicator_id": "ind-training-mailbox",
+      "kind": "email",
+      "value": "training-user@example.com",
+      "confidence": "medium",
+      "tags": ["phishing"]
+    },
+    {
+      "indicator_id": "ind-invoice-domain-duplicate",
+      "kind": "domain",
+      "value": "INVOICE-PORTAL.EXAMPLE",
+      "confidence": "medium",
+      "tags": ["credential-access"]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-mail-gateway",
+      "summary": "Synthetic gateway training record notes an invoice-style subject and a documentation-domain link.",
+      "source_type": "training-scenario",
+      "observed_at": "2026-08-18T09:30:00Z"
+    },
+    {
+      "evidence_id": "ev-user-report",
+      "summary": "Synthetic analyst note records that the training recipient reported the message without accessing the link.",
+      "source_type": "analyst-note",
+      "observed_at": "2026-08-18T09:42:00Z"
+    }
+  ]
+}

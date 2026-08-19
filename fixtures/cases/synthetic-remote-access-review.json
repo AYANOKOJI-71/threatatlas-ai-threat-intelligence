@@ -1,0 +1,44 @@
+{
+  "case_id": "case-synthetic-remote-access",
+  "title": "Synthetic remote-access and outbound-transfer review",
+  "source_label": "Training scenario — sanitized access telemetry summary",
+  "narrative": "A synthetic remote service sign-in review identified a documentation-range IPv4 address followed by a simulated outbound upload theme. The report requires authorized remote-access and proxy telemetry validation; it does not establish compromise or attribution.",
+  "confidence": "high",
+  "tags": ["suspicious-auth", "data-exfiltration"],
+  "indicators": [
+    {
+      "indicator_id": "ind-doc-ipv4",
+      "kind": "ipv4",
+      "value": "198.51.100.44",
+      "confidence": "high",
+      "tags": ["suspicious-auth"]
+    },
+    {
+      "indicator_id": "ind-synthetic-sha",
+      "kind": "sha256",
+      "value": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+      "confidence": "medium",
+      "tags": ["data-exfiltration"]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-remote-access",
+      "summary": "Synthetic access telemetry records a remote service sign-in from a reserved documentation address.",
+      "source_type": "synthetic-telemetry",
+      "observed_at": "2026-08-17T21:10:00Z"
+    },
+    {
+      "evidence_id": "ev-outbound-theme",
+      "summary": "Synthetic proxy summary references an outbound upload theme and requires analyst validation.",
+      "source_type": "synthetic-telemetry",
+      "observed_at": "2026-08-17T21:17:00Z"
+    },
+    {
+      "evidence_id": "ev-analyst-scope",
+      "summary": "Training scenario specifies that any validation is limited to approved access and proxy telemetry.",
+      "source_type": "training-scenario",
+      "observed_at": "2026-08-17T21:22:00Z"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "case-synthetic-routine",
+  "title": "Synthetic low-confidence domain review",
+  "source_label": "Training scenario — analyst enrichment exercise",
+  "narrative": "A training analyst supplied a single low-confidence documentation domain for routine review. The record contains no corroborating evidence, no suspected activity description, and no claim of malicious behavior.",
+  "confidence": "low",
+  "tags": [],
+  "indicators": [
+    {
+      "indicator_id": "ind-routine-domain",
+      "kind": "domain",
+      "value": "reference.example",
+      "confidence": "low",
+      "tags": []
+    }
+  ],
+  "evidence": []
+}

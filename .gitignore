@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+node_modules/
+apps/web/node_modules/
+apps/web/dist/
+.vite/
+*.tsbuildinfo
+*.egg-info/
+.env
+.env.*
+!.env.example
+runtime/
+coverage/

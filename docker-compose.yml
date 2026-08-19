@@ -1,0 +1,25 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    ports:
+      - "${THREATATLAS_API_PORT:-4910}:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    environment:
+      THREATATLAS_API_ORIGIN: http://api:8000
+    ports:
+      - "${THREATATLAS_WEB_PORT:-5201}:5201"
+    depends_on:
+      api:
+        condition: service_healthy
